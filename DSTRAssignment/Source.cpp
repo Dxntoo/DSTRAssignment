@@ -119,6 +119,7 @@ public:
         cout << "\n\n\Your receipt\n\n";
         a.display();
 
+        // Find a way to display book names instead of the userchoice integer
 
     }
 
