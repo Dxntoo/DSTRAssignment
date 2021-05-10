@@ -9,6 +9,27 @@ struct Node {
     Node* next;
 };
 
+struct Item{
+    //Item data
+    int bookId;
+    char bookTitle;
+    int quantity;
+    char genre;
+    float price;
+
+
+
+};
+
+struct Purchase{
+    //Purchase data 
+    int purchaseId;
+    Item* item;
+    float totalPrice;
+
+
+};
+
 class LinkedList {
 
     
