@@ -11,28 +11,34 @@ struct Node {
 
 struct Item{
     //Item data
+    
     int bookId;
     char bookTitle;
     int quantity;
     char genre;
     float price;
-
-
-
+    //Points to the next item
+    Item* next;
+    Item(){
+        //Initialize Item Linked List
+    }
 };
 
 struct Purchase{
-    //Purchase data 
+    //Purchase data
+    
     int purchaseId;
     Item* item;
     float totalPrice;
-
-
+    Item* item;
+    //Points to the next purchase
+    Purchase* next;
+    Purchase(){
+        //Initialize Purchase Linked List
+    }
 };
 
 class LinkedList {
-
-    
 
 public:
     Node* head;
