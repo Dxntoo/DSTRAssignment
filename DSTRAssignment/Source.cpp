@@ -11,16 +11,53 @@ struct Node {
 
 struct Item{
     //Item data
-    
+    Item* head;
+    int size;
     int bookId;
-    char bookTitle;
+    string bookTitle;
     int quantity;
-    char genre;
+    string genre;
     float price;
     //Points to the next item
     Item* next;
     Item(){
         //Initialize Item Linked List
+        this->head = NULL;
+        this->size = 0;
+    }
+
+    void insertItemStart(
+        int bookId, 
+        string bookTitle, 
+        int quantity, 
+        string genre, 
+        float price)
+        {
+            Item* newItem = new Item();
+            newItem->bookTitle = bookTitle;
+            newItem->bookId = bookId;
+            newItem->quantity = quantity;
+            newItem->genre = genre;
+            newItem->price = price;
+            newItem->next = head;
+            head = newItem;
+            size++;
+
+        }
+
+    void displayItems(){
+        Item* currentItem;
+        currentItem = head;
+
+        while(currentItem != NULL){
+            cout << "\n\n\n";
+            cout << currentItem->bookId << ", ";
+            cout << currentItem->bookTitle << ", ";
+            cout << currentItem->quantity << ", ";
+            cout << currentItem->genre << ", ";
+            cout << currentItem->price;
+            currentItem = currentItem->next;
+        }
     }
 };
 
@@ -30,7 +67,7 @@ struct Purchase{
     int purchaseId;
     Item* item;
     float totalPrice;
-    Item* item;
+
     //Points to the next purchase
     Purchase* next;
     Purchase(){
@@ -193,8 +230,15 @@ int main() {
     }
 
 
+    //Display inserted items into item linked list (insertfrombeginning)
     
-    
+    Item newItem;
+
+    newItem.insertItemStart(1,"Test", 4, "horror", 2.4);
+    newItem.insertItemStart(2,"test2", 2, "scifi", 3.4);
+
+    newItem.displayItems();
+
     /*list.insertAtBeginning(1);
     list.insertAtBeginning(2);
     list.insertAtBeginning(3);
