@@ -116,7 +116,7 @@ public:
 
         //display linked list items 
 
-        cout << "\n\n\Your receipt\n\n";
+        cout << "\n\nYour receipt\n\n";
         a.display();
 
         // Find a way to display book names instead of the userchoice integer
@@ -141,7 +141,7 @@ int main() {
     int userchoice;
 
     
-    cout << "\n\n\Welcome, Admin\n\n" << endl;
+    cout << "\n\nWelcome, Admin\n\n" << endl;
 
     cout << "What would you like to do? " << endl;
 
