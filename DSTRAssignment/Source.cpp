@@ -1,10 +1,8 @@
 #include <iostream>
 using namespace std;
-//kmaspcjsicjcoiajcpjsa
 //Node 
 
 struct Node {
-
     int data;
     Node* next;
 };
@@ -13,13 +11,13 @@ struct Item{
     //Item data
     Item* head;
     int size;
-    int bookId;
     string bookTitle;
     int quantity;
     string genre;
     float price;
     //Points to the next item
     Item* next;
+   
     Item(){
         //Initialize Item Linked List
         this->head = NULL;
@@ -27,7 +25,6 @@ struct Item{
     }
 
     void insertItemStart(
-        int bookId, 
         string bookTitle, 
         int quantity, 
         string genre, 
@@ -35,14 +32,12 @@ struct Item{
         {
             Item* newItem = new Item();
             newItem->bookTitle = bookTitle;
-            newItem->bookId = bookId;
             newItem->quantity = quantity;
             newItem->genre = genre;
             newItem->price = price;
             newItem->next = head;
             head = newItem;
             size++;
-
         }
 
     void displayItems(){
@@ -51,7 +46,6 @@ struct Item{
 
         while(currentItem != NULL){
             cout << "\n\n\n";
-            cout << currentItem->bookId << ", ";
             cout << currentItem->bookTitle << ", ";
             cout << currentItem->quantity << ", ";
             cout << currentItem->genre << ", ";
@@ -63,7 +57,6 @@ struct Item{
 
 struct Purchase{
     //Purchase data
-    
     int purchaseId;
     Item* item;
     float totalPrice;
@@ -134,7 +127,6 @@ public:
     }
 
     void addNewPurchase() {
-       
 
         //declare variables
         int bookchoice;
@@ -145,12 +137,10 @@ public:
         //declare new linked list 
         LinkedList a;
 
-
         //Create a loop to buy books until the user sets purchaseDone variable to false
         
         while (userchoice != 2) {
-            
-            
+
             //Show all items 
             cout << "\n\nWhat books to buy?\n\n" << endl;
 
@@ -195,7 +185,6 @@ public:
 int main() {
      
     LinkedList list;
-    
 
     //CLI
 
@@ -205,9 +194,9 @@ int main() {
     int userchoice;
 
     
-    cout << "\n\nWelcome, Admin\n\n" << endl;
+    cout << "\n****************||Welcome Back, Manager||****************\n" << endl;
+    cout << "*************||What would you like to do?||*************" << endl;
 
-    cout << "What would you like to do? " << endl;
 
     cout << "1. Add new purchase" << endl;
     cout << "2. View all purchases" << endl;
@@ -232,14 +221,14 @@ int main() {
 
     //Display inserted items into item linked list (insertfrombeginning)
     
-    Item newItem;
+ /*   Item newItem;
 
     newItem.insertItemStart(1,"Test", 4, "horror", 2.4);
     newItem.insertItemStart(2,"test2", 2, "scifi", 3.4);
 
     newItem.displayItems();
 
-    /*list.insertAtBeginning(1);
+    list.insertAtBeginning(1);
     list.insertAtBeginning(2);
     list.insertAtBeginning(3);
     list.insertAtBeginning(4);
@@ -249,9 +238,8 @@ int main() {
     list.insertAtEnd(30);
     list.insertAtEnd(40);
 
-    list.display();*/
-
-    
+    list.display();
+    */
     
     
 }
