@@ -101,8 +101,8 @@ struct Purchase{
         //Create a loop to buy books until the user sets purchaseDone variable to false
 
         while (userchoice != 2) {
-            Purchase a;
-            Item* newItem;
+            Purchase purchase;
+            Item newItem;
 
             //Show all items 
             cout << "\n\nWhat books to buy?\n\n" << endl;
@@ -113,12 +113,19 @@ struct Purchase{
 
             cin >> bookchoice;
 
+            /*insertItemStart wrong constructor content. Change it so that
+            the addNewPurchase method have each book fields are its own 
+            variable. This makes it so it can pass through insertItemStart method*/
+            newItem.insertItemStart(bookchoice);
+
             cout << "Quantity: " << endl;
             cin >> quantity;
 
             //add new nodes into linked list
-            //IMPORTANT! Need to somehow add the item contents into an Item object and then insertAtEnd(Item)
-            a.insertAtEnd(newItem);
+
+            /*IMPORTANT! Need to somehow add the item contents into an Item object 
+            instead of a pointer Item object and then insertAtEnd(Item)*/
+            purchase.insertAtEnd(newItem);
 
             cout << "\n\nWould you like to add more books?\n\n " << endl;
             cout << "1. Yes 2. No\n\n" << endl;
@@ -130,7 +137,7 @@ struct Purchase{
                 break;
                 cout << "\n\nYour receipt\n\n";
                 
-                a.display();
+                purchase.display();
             }
 
         }
