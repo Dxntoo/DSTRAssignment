@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-//kmaspcjsicjcoiajcpjsa
 //Node 
 
 struct Node {
@@ -18,15 +17,19 @@ struct Item{
     int quantity;
     string genre;
     float price;
+    Item* next;
+    Item* prev;
     //Points to the next item
    
     Item(){
         //Initialize Item Linked List
         this->head = NULL;
         this->size = 0;
+        this->next = NULL;
+        this->prev = NULL;
     }
 
-        int bookId, 
+        
     void insertItemStart(
         string bookTitle, 
         int quantity, 
@@ -63,13 +66,18 @@ struct Item{
 
 struct Purchase{
     //Purchase data
-    
+    Purchase* head;
+    Purchase* size;
     int purchaseId;
     Item* item;
     float totalPrice;
 
+
     //Points to the next purchase
     Purchase* next;
+    
+    //Points to the previous purchase
+    Purchase* prev;
 
     Purchase() {
         //Initialize Purchase Linked List
@@ -185,31 +193,11 @@ struct Purchase{
 
 };
 
-//class LinkedList {
-//
-//public:
-//    Node* head;
-//    int size;
-//    int getSize() {
-//        int size = 0;
-//        Node* current = head;
-//        while (current != NULL) {
-//            size++;
-//            current = current->next;
-//        }
-//        return size;
-//    }
-//
-//    LinkedList() {
-//        this->size = 0;
-//        this->head = NULL;
-//    }
-//
-//    
-};
+
 
 int main() {
-     
+    
+    //Unexisting LinkedList class (remove later)
     LinkedList list;
 
     //CLI
@@ -245,27 +233,4 @@ int main() {
     }
 
 
-    //Display inserted items into item linked list (insertfrombeginning)
-    
- /*   Item newItem;
-
-    newItem.insertItemStart(1,"Test", 4, "horror", 2.4);
-    newItem.insertItemStart(2,"test2", 2, "scifi", 3.4);
-
-    newItem.displayItems();
-
-    list.insertAtBeginning(1);
-    list.insertAtBeginning(2);
-    list.insertAtBeginning(3);
-    list.insertAtBeginning(4);
-
-    list.insertAtEnd(10);
-    list.insertAtEnd(20);
-    list.insertAtEnd(30);
-    list.insertAtEnd(40);
-
-    list.display();
-    */
-    
-    
 }
