@@ -3,12 +3,6 @@ using namespace std;
 //kmaspcjsicjcoiajcpjsa
 //Node 
 
-struct Node {
-
-    int data;
-    Node* next;
-};
-
 struct Item{
     //Item data
     Item* head;
@@ -63,78 +57,23 @@ struct Item{
 
 struct Purchase{
     //Purchase data
-    
+    Purchase* head;
+    Purchase* size;
     int purchaseId;
     Item* item;
     float totalPrice;
 
     //Points to the next purchase
     Purchase* next;
-    Purchase(){
+
+    Purchase() {
         //Initialize Purchase Linked List
-    }
-};
-
-class LinkedList {
-
-public:
-    Node* head;
-    int size;
-    int getSize() {
-        int size = 0;
-        Node* current = head;
-        while (current != NULL) {
-            size++;
-            current = current->next;
-        }
-        return size;
-    }
-
-    LinkedList() {
-        this->size = 0;
         this->head = NULL;
-    }
-
-    void insertAtBeginning(int value) {
-        Node* newNode = new Node;
-        newNode->data = value;
-        newNode->next = head;
-        head = newNode;
-        size++;
-    }
-
-    void display() {
-        Node* current;
-        current = head;
-
-        while (current != NULL) {
-            cout << current->data << ", ";
-            current = current->next;
-        }
-    }
-
-    void insertAtEnd(int value) {
-        Node* newNode = new Node;
-        newNode->data = value;
-        newNode->next = NULL;
-
-        if (head == NULL) {
-            head = newNode;
-        }
-        else {
-            Node* last = head;
-            while (last->next != NULL) {
-                last = last->next;
-            }
-                
-            last->next = newNode;
-            
-        }
-        size++;
-    }
+        this->size = 0;
+    };
 
     void addNewPurchase() {
-       
+
 
         //declare variables
         int bookchoice;
@@ -143,53 +82,125 @@ public:
         int userchoice = 1;
 
         //declare new linked list 
-        LinkedList a;
+        /*LinkedList a;*/
 
 
         //Create a loop to buy books until the user sets purchaseDone variable to false
-        
+
         while (userchoice != 2) {
-            
-            
+            Purchase a;
+            Item* newItem;
+
             //Show all items 
             cout << "\n\nWhat books to buy?\n\n" << endl;
-
             cout << "1. Harry Potter" << endl;
             cout << "2. Diary of A Wimpy Kid" << endl;
             cout << "3. 1984" << endl;
             cout << "4. Invincible" << endl;
+
             cin >> bookchoice;
 
             cout << "Quantity: " << endl;
             cin >> quantity;
 
-            //add new nodes into linked list 
-            a.insertAtEnd(bookchoice);
+            //add new nodes into linked list
+            //IMPORTANT! Need to somehow add the item contents into an Item object and then insertAtEnd(Item)
+            a.insertAtEnd(newItem);
 
             cout << "\n\nWould you like to add more books?\n\n " << endl;
             cout << "1. Yes 2. No\n\n" << endl;
-            cin >> userchoice; 
+            cin >> userchoice;
 
             //if user chooses 'No', the status of purchaseDone is true
             if (userchoice == 2) {
                 purchaseDone = true;
                 break;
+                cout << "\n\nYour receipt\n\n";
+                
+                a.display();
             }
 
         }
 
-        //display linked list items 
-
-        cout << "\n\nYour receipt\n\n";
-        a.display();
-
-        // Find a way to display book names instead of the userchoice integer
+        
 
     }
+
+    void insertAtBeginning(Item* item) {
+        Purchase* newPurchase = new Purchase;
+        newPurchase->item = item;
+        newPurchase->next = head;
+        head = newPurchase;
+        size++;
+    }
+
+    void display() {
+        Purchase* current;
+        current = head;
+
+        while (current != NULL) {
+            //Check this for display errors
+            cout << current->item << ", ";
+            current = current->next;
+        }
+    }
+
+    void insertAtEnd(Item* item) {
+        Purchase* newPurchase = new Purchase;
+        newPurchase->item = item;
+        newPurchase->next = NULL;
+
+        if (head == NULL) {
+            head = newPurchase;
+        }
+        else {
+            Purchase* last = head;
+            while (last->next != NULL) {
+                last = last->next;
+            }
+
+            last->next = newPurchase;
+
+        }
+        size++;
+    }
+
+
 
     void viewAllPurchases() {
+        //Not done yet
         cout << "viewallpurchases" << endl;
     }
+
+    //display linked list items 
+
+    
+
+    // Find a way to display book names instead of the userchoice integer
+
+};
+
+//class LinkedList {
+//
+//public:
+//    Node* head;
+//    int size;
+//    int getSize() {
+//        int size = 0;
+//        Node* current = head;
+//        while (current != NULL) {
+//            size++;
+//            current = current->next;
+//        }
+//        return size;
+//    }
+//
+//    LinkedList() {
+//        this->size = 0;
+//        this->head = NULL;
+//    }
+//
+//    
 };
 
 int main() {
