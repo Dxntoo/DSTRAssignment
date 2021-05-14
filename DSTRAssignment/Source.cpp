@@ -102,7 +102,7 @@ struct Purchase{
 
         while (userchoice != 2) {
             Purchase purchase;
-            Item newItem;
+            Item* newItem;
 
             //Show all items 
             cout << "\n\nWhat books to buy?\n\n" << endl;
@@ -110,16 +110,23 @@ struct Purchase{
             cout << "2. Diary of A Wimpy Kid" << endl;
             cout << "3. 1984" << endl;
             cout << "4. Invincible" << endl;
-
+            //Refer to the book Item object based on bookId
+            //Input bookId
             cin >> bookchoice;
-
-            /*insertItemStart wrong constructor content. Change it so that
-            the addNewPurchase method have each book fields are its own 
-            variable. This makes it so it can pass through insertItemStart method*/
-            newItem.insertItemStart(bookchoice);
-
+            //Input quantity
             cout << "Quantity: " << endl;
             cin >> quantity;
+            //Refer to book Item object with matching bookId
+            
+            if(newItem->bookId = bookchoice && newItem->quantity = quantity){
+                cout << newItem->bookId;
+                cout << newItem->bookTitle;
+                cout << newItem->genre;
+                cout << newItem->quantity;
+            }
+            
+
+            
 
             //add new nodes into linked list
 
